@@ -1,7 +1,6 @@
 import ButtonPrimary from '../components/buttonprim.jsx'
 import ButtonSecondary from '../components/buttonsec.jsx'
 import Container from '../components/Container.jsx'
-import Input from '../components/input.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import { MotionConfig, motion } from 'framer-motion'
 
@@ -574,7 +573,7 @@ function FAQSection() {
 
 function LocationSection() {
   const mapSrc =
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.5085912543899!2d112.71243326955396!3d-7.236919999548089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fed2ed149891%3A0xd40f32ae0e2d1be5!2sJl.%20Tambak%20Asri%20No.173%2C%20RT.016%2FRW.06%2C%20Morokrembangan%2C%20Kec.%20Krembangan%2C%20Surabaya%2C%20Jawa%20Timur%2060178!5e0!3m2!1sid!2sid!4v1770279899460!5m2!1sid!2sid'
+    'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989.5083011117704!2d112.7132011!3d-7.2370523!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7ff3c39d10275%3A0xa55b40223321bd37!2sUD%20Asri%20Raya!5e0!3m2!1sid!2sid!4v1770358821647!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
 
   return (
     <section id="location" className="bg-slate-50">
@@ -605,7 +604,7 @@ function LocationSection() {
             <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
               <div className="text-sm font-semibold text-slate-900">Alamat</div>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Jl. Tambak Asri No.173, RT.016/RW.06, Morokrembangan, Kec. Krembangan, Surabaya, Jawa Timur 60178
+                Jl. Tambak Asri No.174, RT.015/RW.06, Morokrembangan, Kec. Krembangan, Surabaya, Jawa Timur 60178
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <ButtonPrimary
@@ -649,6 +648,16 @@ function LocationSection() {
 }
 
 function ContactSection() {
+  const whatsappNumber = '6283849790195'
+  const whatsappTemplate =
+    'Halo ASRI RAYA, saya mau tanya stok & harga.\n\n' +
+    'Barang: \n' +
+    'Jumlah: \n' +
+    'Lokasi: \n' +
+    'Kebutuhan (hari/tanggal): '
+
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappTemplate)}`
+
   return (
     <section id="contact" className="bg-white">
       <Container className="py-16 sm:py-20">
@@ -679,57 +688,50 @@ function ContactSection() {
                 Kirim kebutuhan kamu (jenis barang + jumlah + lokasi). Kami bantu cek stok dan estimasi ongkir.
               </p>
 
-              <div className="mt-8 grid gap-4 rounded-2xl bg-white p-6 shadow-sm">
+              <div className="mt-12 grid gap-4 rounded-2xl bg-white p-7 shadow-sm">
                 <div>
-                  <div className="text-sm font-semibold text-slate-500">Email</div>
-                  <div className="mt-1 text-l font-semibold text-slate-900">
-                    asriraya@example.com
-                  </div>
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-slate-500">WhatsApp</div>
-                  <div className="mt-1 text-l font-semibold text-slate-900">
+                  <div className="text-l font-semibold text-slate-500">WhatsApp</div>
+                  <div className="mt-1 text-xl font-semibold text-slate-900">
                     +62 838-4979-0195
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            <motion.form
+            <motion.div
               className="rounded-2xl bg-white p-6 shadow-sm"
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: false, amount: 0.35 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              onSubmit={(e) => {
-                e.preventDefault()
-                alert('Form demo: belum ada backend. Nanti bisa kita sambungkan ke WhatsApp / email / Google Form.')
-              }}
             >
-              <div className="grid gap-4">
-                <Input name="name" label="Nama" placeholder="Nama kamu" autoComplete="name" required />
-                <Input name="email" label="Email" placeholder="nama@email.com" autoComplete="email" type="email" required />
-                <label className="block">
-                  <span className="mb-1.5 block text-sm font-medium text-slate-900">Kebutuhan</span>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="block w-full resize-none rounded-xl bg-white px-4 py-2.5 text-sm text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
-                    placeholder="Contoh: semen 10 sak, pasir 1 kubik, cat 2 kaleng. Lokasi: ..."
-                    required
-                  />
-                </label>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <ButtonPrimary type="submit" className="sm:w-auto">
-                    Kirim
-                  </ButtonPrimary>
-                  <p className="text-xs text-slate-500">
-                    Dengan mengirim form, kamu setuju dihubungi via email/WA.
-                  </p>
-                </div>
+              <div className="text-sm font-semibold text-slate-500">Cara paling cepat</div>
+              <div className="mt-2 text-lg font-extrabold text-slate-900">Chat WhatsApp</div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                Klik tombol di bawah untuk kirim format pesan otomatis. Tinggal isi barang, jumlah, dan lokasi.
+              </p>
+
+              <div className="mt-5">
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-red-800 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-red-600/20 ring-1 ring-inset ring-red-800 hover:bg-red-700 active:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                >
+                  Chat via WhatsApp
+                </a>
               </div>
-            </motion.form>
+
+              <div className="mt-4 rounded-xl bg-slate-50 p-4 ring-1 ring-inset ring-slate-200">
+                <div className="text-xs font-semibold text-slate-500">Yang perlu disiapkan</div>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                  <li>Jenis barang + merk (kalau ada)</li>
+                  <li>Jumlah / ukuran</li>
+                  <li>Alamat / titik lokasi</li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </Container>
