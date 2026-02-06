@@ -199,7 +199,7 @@ function AboutSection() {
           </div>
 
           <motion.div
-            className="w-full rounded-3xl border border-slate-100 bg-red-600 p-8"
+            className="w-full rounded-3xl border border-slate-100 bg-red-800 p-8"
             variants={fadeIn}
             initial="hidden"
             whileInView="show"
@@ -237,7 +237,7 @@ function AboutSection() {
                   transition={{ duration: 0.45, ease: 'easeOut' }}
                   className="group rounded-2xl bg-white p-5 shadow-sm ring-1 ring-inset ring-transparent transition duration-200 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg hover:shadow-slate-900/10 hover:ring-red-100"
                 >
-                  <div className="mx-auto grid h-35 w-35 place-items-center rounded-2xl bg-red-600/10 text-red-600 ring-1 ring-inset ring-red-100 transition group-hover:bg-red-600/15">
+                  <div className="mx-auto grid h-35 w-35 place-items-center rounded-2xl bg-red-600/10 text-red-800 ring-1 ring-inset ring-red-100 transition group-hover:bg-red-600/15">
                     <v.icon className="h-20 w-20" />
                   </div>
                   <div className="mt-4 font-bold text-slate-900">{v.title}</div>
@@ -395,7 +395,7 @@ function ProjectsSection() {
               key={p.title}
               variants={fadeUp}
               transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm"
+              className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-red-100 hover:shadow-md"
             >
               <div className="flex items-center justify-between">
                 <div className="text-xs font-semibold text-slate-500">Case Study</div>
@@ -608,21 +608,21 @@ function LocationSection() {
                 Jl. Tambak Asri No.173, RT.016/RW.06, Morokrembangan, Kec. Krembangan, Surabaya, Jawa Timur 60178
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <a
-                  className="inline-flex items-center justify-center rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+                <ButtonPrimary
+                  className="inline-flex items-center justify-center rounded-xl bg-red-800 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
                   href="https://maps.google.com/?q=Jl.%20Tambak%20Asri%20No.173%2C%20Surabaya"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Buka di Google Maps
-                </a>
-                <button
+                </ButtonPrimary>
+                <ButtonSecondary
                   type="button"
                   className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-red-700 ring-1 ring-inset ring-red-200 hover:bg-red-50"
                   onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Minta pengiriman
-                </button>
+                </ButtonSecondary>
               </div>
             </div>
           </motion.div>
@@ -653,7 +653,7 @@ function ContactSection() {
     <section id="contact" className="bg-white">
       <Container className="py-16 sm:py-20">
         <motion.div
-          className="rounded-3xl border border-red-100 bg-red-600 p-8 sm:p-10"
+          className="rounded-3xl border border-red-100 bg-red-800 p-8 sm:p-10"
           variants={fadeIn}
           initial="hidden"
           whileInView="show"
@@ -681,15 +681,15 @@ function ContactSection() {
 
               <div className="mt-8 grid gap-4 rounded-2xl bg-white p-6 shadow-sm">
                 <div>
-                  <div className="text-xs font-semibold text-slate-500">Email</div>
-                  <div className="mt-1 text-sm font-semibold text-slate-900">
+                  <div className="text-sm font-semibold text-slate-500">Email</div>
+                  <div className="mt-1 text-l font-semibold text-slate-900">
                     asriraya@example.com
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-500">WhatsApp</div>
-                  <div className="mt-1 text-sm font-semibold text-slate-900">
-                    +62 812-0000-0000
+                  <div className="text-sm font-semibold text-slate-500">WhatsApp</div>
+                  <div className="mt-1 text-l font-semibold text-slate-900">
+                    +62 838-4979-0195
                   </div>
                 </div>
               </div>
@@ -746,8 +746,8 @@ export default function Home() {
       <ProjectsSection />
       <TestimonialsSection />
       <FAQSection />
-      <LocationSection />
       <ContactSection />
+      <LocationSection />
     </MotionConfig>
   )
 }
