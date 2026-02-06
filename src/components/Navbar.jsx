@@ -7,6 +7,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   function scrollToHref(href) {
+    if (window.location.pathname !== '/') {
+      window.location.href = href === '#' || !href ? '/' : `/${href}`
+      return
+    }
+
     if (!href || href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
@@ -21,7 +26,7 @@ export default function Navbar() {
       { href: '#about', label: 'Tentang' },
       { href: '#services', label: 'Layanan' },
       { href: '#projects', label: 'Proyek' },
-      { href: '#testimonials', label: 'Testimoni' },
+      { href: '#produk', label: 'Produk' },
       { href: '#faq', label: 'FAQ' },
       { href: '#location', label: 'Lokasi' },
       { href: '#contact', label: 'Kontak' },

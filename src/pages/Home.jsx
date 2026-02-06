@@ -3,6 +3,7 @@ import ButtonSecondary from '../components/buttonsec.jsx'
 import Container from '../components/Container.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import { MotionConfig, motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -31,7 +32,7 @@ function HeroSection() {
     >
       <div className="absolute inset-0 bg-slate-950/65" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/55 to-slate-950/75"
+        className="absolute inset-0 bg-linear-to-b from-slate-950/40 via-slate-950/55 to-slate-950/75"
         aria-hidden="true"
       />
 
@@ -59,8 +60,10 @@ function HeroSection() {
           >
             ASRI RAYA
             <span className="text-red-400">.</span>
+            <span className="text-red-800 text-5xl">
             <br />
             Lengkap, amanah, dan siap kirim.
+            </span>
           </motion.h1>
 
           <motion.p
@@ -609,7 +612,7 @@ function LocationSection() {
               <div className="mt-5 flex flex-wrap gap-3">
                 <ButtonPrimary
                   className="inline-flex items-center justify-center rounded-xl bg-red-800 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
-                  href="https://maps.google.com/?q=Jl.%20Tambak%20Asri%20No.173%2C%20Surabaya"
+                  href="https://maps.app.goo.gl/fc7J5KzMcMuKpUwo8"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -628,7 +631,7 @@ function LocationSection() {
 
           <motion.div variants={fadeUp} transition={{ duration: 0.45, ease: 'easeOut' }}>
             <div className="w-full overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-inset ring-slate-200">
-              <div className="aspect-[4/3] w-full bg-slate-100">
+              <div className="aspect-4/3 w-full bg-slate-100">
                 <iframe
                   src={mapSrc}
                   title="Lokasi ASRI RAYA di Google Maps"
@@ -663,7 +666,7 @@ function ContactSection() {
       <Container className="py-16 sm:py-20">
         <motion.div
           className="rounded-3xl border border-red-100 bg-red-800 p-8 sm:p-10"
-          variants={fadeIn}
+          variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.2 }}
@@ -674,7 +677,7 @@ function ContactSection() {
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.35 }}
+              viewport={{ once: false, amount: 0.05 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
               <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-red-700 ring-1 ring-inset ring-red-100">
@@ -703,7 +706,7 @@ function ContactSection() {
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.35 }}
+              viewport={{ once: false, amount: 0.05 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
               <div className="text-sm font-semibold text-slate-500">Cara paling cepat</div>
@@ -740,6 +743,23 @@ function ContactSection() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    function scrollToHash() {
+      const hash = window.location.hash
+      if (!hash || hash === '#') return
+
+      // Let React paint first so the element exists.
+      requestAnimationFrame(() => {
+        const el = document.querySelector(hash)
+        el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
+
+    scrollToHash()
+    window.addEventListener('hashchange', scrollToHash)
+    return () => window.removeEventListener('hashchange', scrollToHash)
+  }, [])
+
   return (
     <MotionConfig reducedMotion="user">
       <HeroSection />
