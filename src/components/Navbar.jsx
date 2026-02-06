@@ -155,16 +155,16 @@ export default function Navbar() {
                     {l.label}
                   </a>
                 ))}
-                <button
+                <ButtonPrimary
                   type="button"
                   onClick={() => {
                     setOpen(false)
                     scrollToHref('#contact')
                   }}
-                  className="mt-2 w-full rounded-xl bg-red-600 px-4 py-3 text-sm font-semibold text-white hover:bg-red-500"
+                  className="mt-2 w-full rounded-xl bg-red-800 px-4 py-3 text-sm font-semibold text-white hover:bg-red-700"
                 >
                   Minta Penawaran
-                </button>
+                </ButtonPrimary>
               </div>
             </Container>
           </div>

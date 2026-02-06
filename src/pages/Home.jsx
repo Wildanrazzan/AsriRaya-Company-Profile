@@ -744,7 +744,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <ProjectsSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FAQSection />
       <ContactSection />
       <LocationSection />
