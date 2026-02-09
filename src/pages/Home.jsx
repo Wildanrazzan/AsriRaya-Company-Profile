@@ -61,8 +61,8 @@ function HeroSection() {
             ASRI RAYA
             <span className="text-red-400">.</span>
             <span className="text-red-800 text-5xl">
-            <br />
-            Lengkap, amanah, dan siap kirim.
+              <br />
+              Lengkap, amanah, dan siap kirim.
             </span>
           </motion.h1>
 

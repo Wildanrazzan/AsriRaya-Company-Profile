@@ -1,5 +1,6 @@
 import Container from '../components/Container.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
+import { Link } from 'react-router-dom'
 
 export default function Privacy() {
   return (
@@ -72,12 +73,12 @@ export default function Privacy() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <a href="/" className="text-sm font-semibold text-red-700 hover:text-red-600">
+            <Link to="/" className="text-sm font-semibold text-red-700 hover:text-red-600">
               ← Kembali ke Beranda
-            </a>
-            <a href="/terms" className="text-sm font-semibold text-red-700 hover:text-red-600">
+            </Link>
+            <Link to="/terms" className="text-sm font-semibold text-red-700 hover:text-red-600">
               Lihat Syarat & Ketentuan →
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

@@ -1,5 +1,6 @@
 import BrandMark from './BrandMark.jsx'
 import Container from './Container.jsx'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -30,8 +31,8 @@ export default function Footer() {
         <div className="mt-8 flex flex-col gap-2 border-t border-slate-100 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <div>© {year} ASRI RAYA. All rights reserved.</div>
           <div className="flex gap-4">
-            <a href="/privacy" className="hover:text-red-600">Privacy</a>
-            <a href="/terms" className="hover:text-red-600">Terms</a>
+            <Link to="/privacy" className="hover:text-red-600">Privacy</Link>
+            <Link to="/terms" className="hover:text-red-600">Terms</Link>
           </div>
         </div>
       </Container>
