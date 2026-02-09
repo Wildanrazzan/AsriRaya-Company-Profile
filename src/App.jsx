@@ -2,11 +2,13 @@ import MainLayout from './layouts/MainLayout.jsx'
 import Home from './pages/Home.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
