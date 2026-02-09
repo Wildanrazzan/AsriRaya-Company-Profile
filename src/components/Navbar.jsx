@@ -2,11 +2,20 @@ import { useEffect, useMemo, useState } from 'react'
 import BrandMark from './BrandMark.jsx'
 import Container from './Container.jsx'
 import ButtonPrimary from './buttonprim.jsx'
+import { useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
 
   function scrollToHref(href) {
+    if (!href) return
+
+    if (href.startsWith('/')) {
+      navigate(href)
+      return
+    }
+
     if (window.location.pathname !== '/') {
       window.location.href = href === '#' || !href ? '/' : `/${href}`
       return
@@ -25,8 +34,8 @@ export default function Navbar() {
     () => [
       { href: '#about', label: 'Tentang' },
       { href: '#services', label: 'Layanan' },
-      { href: '#projects', label: 'Proyek' },
-      { href: '#produk', label: 'Produk' },
+      // { href: '#projects', label: 'Proyek' },
+      { href: '/produk', label: 'Produk' },
       { href: '#faq', label: 'FAQ' },
       { href: '#location', label: 'Lokasi' },
       { href: '#contact', label: 'Kontak' },

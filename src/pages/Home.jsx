@@ -765,7 +765,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-      <ProjectsSection />
+      {/* <ProjectsSection /> */}
       {/* <TestimonialsSection /> */}
       <FAQSection />
       <ContactSection />

@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             <a href="/#about" className="text-slate-600 hover:text-red-600">Tentang</a>
             <a href="/#services" className="text-slate-600 hover:text-red-600">Layanan</a>
-            <a href="/#projects" className="text-slate-600 hover:text-red-600">Proyek</a>
+            <Link to="/produk" className="text-slate-600 hover:text-red-600">Produk</Link>
             <a href="/#faq" className="text-slate-600 hover:text-red-600">FAQ</a>
             <a href="/#contact" className="text-slate-600 hover:text-red-600">Kontak</a>
           </div>
